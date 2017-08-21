@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using MrFixIt.Models;
 using Microsoft.EntityFrameworkCore;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+// add AJAX for jobs marked active, mark jobs complete, claim a job methods.
 
 namespace MrFixIt.Controllers
 {
@@ -39,6 +39,7 @@ namespace MrFixIt.Controllers
             return View(thisItem);
         }
 
+        //add AJAX to this section
         [HttpPost]
         public IActionResult Claim(Job job)
         {

@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
+//add using System.ComponentModel.DataAnnotations.Schema;
+
 namespace MrFixIt.Models
 {
     public class Job

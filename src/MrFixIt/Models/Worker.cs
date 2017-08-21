@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 
+//add using System.ComponentModel.DataAnnotations.Schema;
+
 namespace MrFixIt.Models
 {
     public class Worker
