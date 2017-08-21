@@ -14,7 +14,6 @@ namespace MrFixIt.Controllers
     {
         private MrFixItContext db = new MrFixItContext();
 
-        // GET: /<controller>/
         public IActionResult Index()
         {
             return View(db.Jobs.Include(i => i.Worker).ToList());
