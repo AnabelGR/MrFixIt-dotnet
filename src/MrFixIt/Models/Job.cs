@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-
-//add using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MrFixIt.Models
 {
+    [Table("Jobs")]
     public class Job
     {
         [Key]
@@ -23,5 +23,6 @@ namespace MrFixIt.Models
             Worker thisWorker = new MrFixItContext().Workers.FirstOrDefault(i => i.UserName == UserName);
             return thisWorker;
         }
+        public Job() { }
     }
 }

@@ -1,6 +1,4 @@
 {
-  //add AJAX dependencies and tools
-
   "dependencies": {
     "Microsoft.NETCore.App": {
       "version": "1.0.1",

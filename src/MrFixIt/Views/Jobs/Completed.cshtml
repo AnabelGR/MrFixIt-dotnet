@@ -1,0 +1,17 @@
+﻿@{
+
+}
+@model MrFixIt.Models.Job
+
+<h2>Have you completed this job?</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.JobId)
+    @Html.HiddenFor(model => model.Title)
+    @Html.HiddenFor(model => model.Description)
+
+    <h4>@Model.Title</h4>
+    <input type="submit" value="Mark This Job Completed" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>

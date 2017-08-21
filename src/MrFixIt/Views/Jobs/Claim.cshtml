@@ -14,6 +14,24 @@
     @Html.HiddenFor(model => model.Description)
 
     <h4>@Model.Title</h4>
-    <input type="submit" value="Claim This Job" />
+    <input type="submit" class="claim-job" value="Claim This Job" />
 }
+
+<div id="jobClaimed"></div>
+
 <p>@Html.ActionLink("Back to list", "Index")</p>
+
+<script>
+$('.claim-job').click(function () {
+    $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        url: '@Url.Action("Claim")',
+        success: function (result) {
+        var resultString = 'Id: ' + result.id + '<br>Ttile: ' + result.title + '<br>Description: ' + result.description;
+        $('#jobClaimed').html(resultString);
+        }
+    });
+});
+</script>

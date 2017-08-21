@@ -13,8 +13,6 @@ using Microsoft.EntityFrameworkCore;
 using MrFixIt.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-//add using Microsoft.Data.Entity;
-
 namespace MrFixIt
 {
     public class Startup
