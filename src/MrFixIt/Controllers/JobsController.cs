@@ -48,35 +48,5 @@ namespace MrFixIt.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        public IActionResult Pending(int id)
-        {
-            var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
-            return View(thisItem);
-        }
-
-        [HttpPost]
-        public IActionResult Pending(Job job)
-        {
-            job.Worker = db.Workers.FirstOrDefault(i => i.UserName == User.Identity.Name);
-            db.Entry(job).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        public IActionResult Completed(int id)
-        {
-            var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
-            return View(thisItem);
-        }
-
-        [HttpPost]
-        public IActionResult Completed(Job job)
-        {
-            job.Worker = db.Workers.FirstOrDefault(i => i.UserName == User.Identity.Name);
-            db.Entry(job).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
     }
 }

@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Log In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>If job is finished, please mark as completed. Thank you.</h2>
+<form action="Complete" class="completed-job">
+    <label for="status">Status: </label>
+    <input type="hidden" name="status" />
+    <br />
+    <button type="submit">Completed</button>
+</form>

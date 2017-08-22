@@ -59,4 +59,68 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            //ajax to display and hide claim view
+            $('.claimForm').click(function () {
+                clicked = $(this)[0].id;
+                clicked = parseInt(clicked);
+                console.log(clicked);
+                $.ajax({
+                    type: 'GET',
+                    data: {id : clicked},
+                    dataType: 'html',
+                    url: '@Url.Action("Claim", "Jobs")',
+                    success: function (result) {
+                        $('#confirm-' + clicked).html(result);
+                    }
+                });
+            });
+            $('#cancel').click(function () {
+                console.log(clicked);
+                $('#confirm-' + clicked).html('');
+            });
+            $('.completed-job').submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("complete", "Workers")',
+                    type: 'POST',
+                    dataType: 'html',
+                    data: $(this).serialize(),
+                    success: function (result) {}
+                });
+                setTimeout(function ()
+                {
+                    location.reload();
+                }, 100);
+            });
+            $('.active-job').submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("active", "Workers")',
+                    type: 'POST',
+                    dataType: 'html',
+                    data: $(this).serialize(),
+                    success: function (result) { }
+                });
+                setTimeout(function () {
+                    location.reload();
+                }, 100);
+            });
+            $('.claim-job').submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '@Url.Action("ClaimJob", "Jobs")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                    success: function (result) {}
+                });
+                setTimeout(function () {
+                    window.location.reload();
+                }, 100);
+            });
+        });
+</script>
 </html>

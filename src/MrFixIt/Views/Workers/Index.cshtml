@@ -8,55 +8,50 @@
 @if (User.Identity.IsAuthenticated)
 {
 
-    <div class="text-left">
-        <h2>Hello Worker @Model.FirstName @Model.LastName. You are Logged In</h2>
-        <h3>Your Current Jobs:</h3>
+    <div class="container">
+        <h3>Hello Worker @Model.FirstName @Model.LastName. You're loggen in.</h3>
+        <h4>Your Current Jobs:</h4>
         @foreach (var Job in Model.Jobs)
         {
-            <h3>@Job.Title</h3>
-            <p class="status">
-                <input type="button" name="pending" value="pending" id="pending"> | 
-                <input type="button" name="completed" value="completed" id="completed">
-            </p>
+            <div class="container active-@Job.Pending">
+                <div class="panel-@Job.Completed">
+                    <h3>@Job.Title</h3>
+                    @if (!Job.Pending)
+                        {
+                        @if(Job.Worker.Avaliable )
+                        {
+                        <form action="active" class="active-job">
+                            <input type="hidden" name="id" value="@Job.JobId" />
+                            <button type="submit" id="@Job.JobId">Declare Active</button>
+                        </form>
+                        }
+                    }
+                    @if (Job.Pending)
+                        {
+                        @if (!Job.Completed)
+                        {
+                        <form action="complete" class="completed-job">
+                            <input type="hidden" name="id" value="@Job.JobId" />
+                            <button type="submit" class="test" id="@Job.JobId">Complete</button>
+                        </form>
+                        }
+                        @if(Job.Completed)
+                        {
+                            <p>Thank you for fixing that! You are appreciated.</p>
+                        }
+                    }
+                </div>
+            </div>
         }
+    </div>
+    <div class="container">
         @if (Model.Avaliable)
         {
-            <h2>Please @Html.ActionLink("select a job", "Index", "Jobs").</h2>
+            <h3>Please @Html.ActionLink("select a job", "Index", "Jobs").</h3>
         }
         else
         {
             <p>You are already assigned to a job.</p>
         }
     </div>
-    <h3>Active Jobs:</h3>
-    <div class="pendingJobs">
-
-    </div>
-    <h3>Jobs Completed:</h3>
-    <div class="completedJobs">
-
-    </div>
 }
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#pending').click(function () {
-            $.ajax({
-                type: 'GET',
-                url: '@Url.Action("true")',
-                success: function (result) {
-                $('.pendingJobs').html(result);
-                }
-        });
-        });
-        $('#completed').click(function () {
-            $.ajax({
-                type: 'GET',
-                url: '@Url.Action("true")',
-                success: function (result) {
-                    $('.completedJobs').html(result);
-                }
-            });
-        });
-});
-</script>
