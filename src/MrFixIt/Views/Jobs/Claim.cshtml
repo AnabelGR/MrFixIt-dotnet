@@ -23,7 +23,7 @@
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 
-<script>
+<script type="text/javascript">
 $('.claim-job').click(function () {
     $.ajax({
         type: 'GET',
@@ -31,7 +31,7 @@ $('.claim-job').click(function () {
         contentType: 'application/json',
         url: '@Url.Action("Claim")',
         success: function (result) {
-        var resultString = 'Id: ' + result.id + '<br>Ttile: ' + result.title + '<br>Description: ' + result.description;
+        var resultString = 'Id: ' + result.id + '<br>Title: ' + result.title + '<br>Description: ' + result.description;
         $('#jobClaimed').html(resultString);
         }
     });

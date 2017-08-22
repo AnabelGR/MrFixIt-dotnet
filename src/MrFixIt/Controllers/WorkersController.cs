@@ -12,7 +12,6 @@ namespace MrFixIt.Controllers
     public class WorkersController : Controller
     {
         private MrFixItContext db = new MrFixItContext();
-        // GET: /<controller>/
         public IActionResult Index()
         {
             var thisWorker = db.Workers.Include(i =>i.Jobs).FirstOrDefault(i => i.UserName == User.Identity.Name);

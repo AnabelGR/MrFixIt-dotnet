@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "a2dcb6aa0dd99ee1dd9c81ce705c0616f47e9b95"
+    "signature": "a63c19fd776cbac881618676067579edfc1df48f"
   },
   "compilationOptions": {
     "defines": [
@@ -30,12 +30,20 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
           "RestSharp.NetCore": "105.2.3",
           "Newtonsoft.Json": "9.0.1",
-          "Microsoft.AspNetCore.Http.Abstractions": "1.1.0"
+          "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
+          "bootstrap": "3.3.7",
+          "jQuery": "2.2.3"
         },
         "compile": {
           "MrFixIt.dll": {}
         }
       },
+      "bootstrap/3.3.7": {
+        "dependencies": {
+          "jQuery": "2.2.3"
+        }
+      },
+      "jQuery/2.2.3": {},
       "Libuv/1.9.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -2898,12 +2906,20 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
           "RestSharp.NetCore": "105.2.3",
           "Newtonsoft.Json": "9.0.1",
-          "Microsoft.AspNetCore.Http.Abstractions": "1.1.0"
+          "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
+          "bootstrap": "3.3.7",
+          "jQuery": "2.2.3"
         },
         "runtime": {
           "MrFixIt.dll": {}
         }
       },
+      "bootstrap/3.3.7": {
+        "dependencies": {
+          "jQuery": "2.2.3"
+        }
+      },
+      "jQuery/2.2.3": {},
       "Libuv/1.9.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -5659,6 +5675,16 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "bootstrap/3.3.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3YTWhPNh6UcnUvzw9u6A2/hy2w0h4lznxPbX6FY47lFia3+Ib4zBixTpW6YieYA/b2fLXbkjoD59OjcVF3cJXw=="
+    },
+    "jQuery/2.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VCYHFjLUxDqCUHPd3SxDfZgoMlQ6JIbZ277KbTbKtruQaKdtK8/s1WUuZnMYgxSUFxwsMxxHavDYuyHt4axsJg=="
     },
     "Libuv/1.9.0": {
       "type": "package",

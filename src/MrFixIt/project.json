@@ -21,7 +21,9 @@
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
     "RestSharp.NetCore": "105.2.3",
     "Newtonsoft.Json": "9.0.1",
-    "Microsoft.AspNetCore.Http.Abstractions": "1.1.0"
+    "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
+    "bootstrap": "3.3.7",
+    "jQuery": "2.2.3"
   },
 
   "tools": {
